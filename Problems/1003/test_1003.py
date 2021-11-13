@@ -14,3 +14,10 @@ def test_fibo2(monkeypatch, capsys):
     solve()
     outst = capsys.readouterr()
     assert outst.out == "2 3\n"
+
+
+def test_fibo3(monkeypatch, capsys):
+    monkeypatch.setattr("sys.stdin", io.StringIO("1\n5"))
+    solve()
+    outst = capsys.readouterr()
+    assert outst.out == "3 5\n"
