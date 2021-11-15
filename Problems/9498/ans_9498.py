@@ -11,7 +11,7 @@ def report():
     # (2) 조건 판단 및 출력
     if (score_report < 0) or (score_report > 100):
         print("not correct score")
-    elif 90 <= score_report <= 100:
+    elif 90 <= score_report:
         print("A")
     elif 80 <= score_report < 90:
         print("B")

@@ -5,7 +5,7 @@ def solve():
     yrs = int(input())
     
     if yrs % 4 == 0:
-        if (yrs % 100 == 0) and (yrs % 400 == 0):
+        if (yrs % 400 == 0):
             print("1")
         elif (yrs % 100 !=0):
             print("1")
