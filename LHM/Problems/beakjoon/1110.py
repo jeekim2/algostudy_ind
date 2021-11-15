@@ -1,21 +1,25 @@
+#https://www.acmicpc.net/problem/1110
 import math
-inputVal = int(input())
-in1 = math.floor(inputVal/10)   
-in2 = inputVal%10               
+inputVal = int(input())     #26
+in1 = math.floor(inputVal/10)   #2
+in2 = inputVal%10               #6
 i = 0
-print(in1,in2)
+
 
 input = []
-input.insert(0,in1)
-input.insert(1,in2)
-    
+input.insert(0,in1) #2
+input.insert(1,in2) #6
+input.insert(2,(input[0]+input[1])%10)  #8 
+#print(input)    
 
-for i in range(1000):
-    input.insert([i+2],(input[i]+input[i+1])%10) 
-    i = i+1
-
-    if input[i]*10+input[i+1] == input[i+1]*10+input[i+2]:
-        break             
-        
-
-print(i)
+while True:
+    # 26==68?
+    if input[0]*10+input[1] != input[i+1]*10+input[i+2]:
+        input.insert(i+3,(input[i+1]+input[i+2])%10)
+        i = i+1 
+       # print(input)  
+             
+    else:
+        print(len(input)-2)  
+        break
+     
