@@ -1,14 +1,14 @@
-# lamda ¸Å°³º¯¼ö : ¸®ÅÏ°ª
-# map = ÇÔ¼ö, list ¿ä¼Ò¸¦ ÇÔ¼ö¿¡ ³Ö°í ¹ÝÈ¯µÈ °ªÀ¸·Î »õ·Î¿î ¸®½ºÆ® ±¸¼º
-# filter = ÇÔ¼ö, list ¿ä¼Ò¸¦ ÇÔ¼ö¿¡ ³Ö°í ¹ÝÈ¯µÈ °ªÀÌ TrueÀÏ °æ¿ì¿¡¸¸ »õ·Î¿î ¸®½ºÆ® »ý¼º
+# lamda ë§¤ê°œë³€ìˆ˜ : ë¦¬í„´ê°’
+# map = í•¨ìˆ˜, list ìš”ì†Œë¥¼ í•¨ìˆ˜ì— ë„£ê³  ë°˜í™˜ëœ ê°’ìœ¼ë¡œ ìƒˆë¡œìš´ ë¦¬ìŠ¤íŠ¸ êµ¬ì„±
+# filter = í•¨ìˆ˜, list ìš”ì†Œë¥¼ í•¨ìˆ˜ì— ë„£ê³  ë°˜í™˜ëœ ê°’ì´ Trueì¼ ê²½ìš°ì—ë§Œ ìƒˆë¡œìš´ ë¦¬ìŠ¤íŠ¸ ìƒì„±
 
-# ¿¹½Ã(1)
+# ì˜ˆì‹œ(1)
 power = lambda x:x*x
 under_3 = lambda x:x<3
 
 list_input_a = [1,2,3,4,5]
 output_a = map(power, list_input_a)
-output_b = filter(under_3, list_input_a)
+output_b = filter(lambda x:x<3, list_input_a)
 
 print(type(output_a)) # class map
 print(type(output_b)) # class filter
