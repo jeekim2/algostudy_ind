@@ -1,5 +1,5 @@
 # https://www.acmicpc.net/problem/4344
-# ¹®Á¦ : ÀÚ½ÅÀÌ ¹Ý¿¡¼­ Æò±ÕÀº ³Ñ´Â´Ù´Â »ý°¢¿¡ ´ëÇØ °á°ú¸¦ ¾Ë·ÁÁà¾ß ÇÔ.
+# ë¬¸ì œ : ìžì‹ ì´ ë°˜ì—ì„œ í‰ê· ì€ ë„˜ëŠ”ë‹¤ëŠ” ìƒê°ì— ëŒ€í•´ ê²°ê³¼ë¥¼ ì•Œë ¤ì¤˜ì•¼ í•¨.
 
 # import numpy
 
@@ -17,9 +17,9 @@ def the_truth_is():
                 avg_cnt = avg_cnt + 1
         avr_percent = avg_cnt / cnt * 100
         
-        # print(round(avr_percent,3),"%") # round(num,¼Ò¼öÁ¡) -> 40.0% Ç¥±â
-        print("{:.3f}".format(avr_percent),"%", sep='') # "{:.¼Ò¼öÁ¡f}".format(num) -> 40.000% Ç¥±â
-        i += 1
+        # print(round(avr_percent,3),"%") # round(num,ì†Œìˆ˜ì ) -> 40.0% í‘œê¸°
+        print("{:.3f}".format(avr_percent),"%", sep='') # "{:.ì†Œìˆ˜ì f}".format(num) -> 40.000% í‘œê¸°
+#        i += 1
 
 if __name__ == "__main__":
     the_truth_is()
