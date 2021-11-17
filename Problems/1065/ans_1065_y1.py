@@ -1,29 +1,26 @@
 #https://www.acmicpc.net/problem/1065
 
 #각 자리수의 등차 수열 : 한자리 수 - 1개 / 두자리 수 - 1개 / 세자리 수 - 계산 필요
-#abc의 등차 수열 전제 조건: a + 2d (=c) < 10 , a + d(=b) < 10
-#전제 조건 재정리 : 111a+12d <= abc || 89a-12d <=abc , d <= 4
+#abc의 등차 수열1(d:양수): a + 2d (=c) < 10 -> 100의 자리 바뀔 때마다 +4
+#abc의 등차 수열2(d:음수): a - 2d >=0 -> a/2
 
 
-def equal_diff(N):
-    if N < 100:
-        return N
+def AP(MAX):
+    cnt=0
+    n = str(MAX)
+    
+    if (len(n)<3):
+        cnt = MAX
     else:
         cnt = 99
-        N_1st = (N//10)//10
-        
-        for i in range(1,N_1st+1):
-            for j in range(1,5):
-                if (111*i+12*j) <= N:
-                    cnt+=1
-                    print(cnt)
-                if (111*i+12*j) <= N:
-                    cnt+=1
-                    print(cnt)
-        return cnt               
+        for i in range(100,MAX+1):
+            str_i = str(i)
+            if ((int(str_i[0])-int(str_i[1]))==(int(str_i[1])-int(str_i[2]))):
+                cnt+=1
+    return cnt                               
     
 if __name__ == "__main__":    
-    # N = int(input())
-    print(equal_diff(210))
+    MAX = int(input())
+    print(AP(MAX))
         
    
