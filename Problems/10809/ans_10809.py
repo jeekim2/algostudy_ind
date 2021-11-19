@@ -6,11 +6,10 @@ import sys
 def solve():
     input = sys.stdin.readline
     words = str(input())
-    alphabet = list(map(chr,range(97,123))) # ascii 코드 생성 - chr 사용
     array = []
 
     # 방법 (1) - index별 비교하기
-    for i in range(97,123):        
+    for i in range(97,123):       # ascii 코드 : 97~123 (a~z)
         if chr(i) in words:
             index_num = words.index(chr(i))
             array.append(index_num)
@@ -18,10 +17,14 @@ def solve():
             array.append(-1)
 
     # 방법 (2) - find 함수 사용 (미완성)
+#    alphabet = list(map(chr,range(97,123))) # ascii 코드 생성 - chr 사용
+
 #    index_num = words[i].find(str(alphabet))
 #    print(index_num)
 
-    print(array)
+#    print(array) # 이런 경우, list 출력되어 틀렸다고 함.
+    for i in array: # end=" "를 이용하여 list로 출력하지 않기 위한 부분
+        print(i, end=" ")
 
 if __name__ == "__main__":
     solve()
