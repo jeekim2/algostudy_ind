@@ -1,6 +1,6 @@
 # https://www.acmicpc.net/problem/2675
 
-# ¹®Á¦ : input str(S) -> Repeat R for each str(S[N]) to create new str(P)
+# ë¬¸ì œ : input str(S) -> Repeat R for each str(S[N]) to create new str(P)
 
 def solve():
     test_n = int(input())
