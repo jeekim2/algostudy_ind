@@ -14,8 +14,8 @@ def prime_number(N):
             prime_list[2*i::i] = [False]*(N//i-1)
     return prime_list
 
-if __name__=="__main__":
-    M,N = map(int,input().split())
+def Problem_1929(M,N):
+    # M,N = map(int,input().split())
     is_prime = prime_number(N)
     for i in range(M,N+1):
         if is_prime[i]:print(i)
