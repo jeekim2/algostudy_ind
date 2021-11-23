@@ -119,3 +119,9 @@ if __name__ == "__main__":
 #    print(avg_method_1_arr(input_x))
 #    print(avg_method_3_arr(input_x))    
 #    print(avg_method_4_arr(input_x))
+
+# -------------------------------------------------------------------------
+# 기타 : Averaging 방법론
+# Moving Average : https://wendys.tistory.com/178 
+# VAMA (Volume Adjusted Moving Average) : https://blog.naver.com/breezehome50/222342190125
+
