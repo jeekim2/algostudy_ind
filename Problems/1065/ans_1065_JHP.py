@@ -9,13 +9,14 @@ def solve():
     num = int(input())
     cnt = 0
     
-    for val in range(1,num):
+    for val in range(1,num+1): # num까지 추가하기 위해서는 num + 1로 해야함.
         num_str = str(val)
-        if len(num_str) < 3:
+        if val < 100:
             cnt += 1
         else: 
             for i in range(0,len(num_str)-2):   # index [0]~[2]
                 if int(num_str[i]) - int(num_str[i+1]) == int(num_str[i+1])-int(num_str[i+2]):
+                    print(num_str[i],i)
                     cnt += 1
     print(cnt)
     
