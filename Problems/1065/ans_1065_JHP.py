@@ -11,7 +11,11 @@ def solve():
     
     for val in range(1,num+1): # num까지 추가하기 위해서는 num + 1로 해야함.
         num_str = str(val)
+<<<<<<< HEAD
         if val < 100:
+=======
+        if val< 100
+>>>>>>> 0dd75315c92c01b7fb6a76c533caaa84cfa27d47
             cnt += 1
         else: 
             for i in range(0,len(num_str)-2):   # index [0]~[2]
