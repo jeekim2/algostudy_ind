@@ -11,7 +11,7 @@ def solve():
     
     for val in range(1,num):
         num_str = str(val)
-        if len(num_str) < 3:
+        if val< 100
             cnt += 1
         else: 
             for i in range(0,len(num_str)-2):   # index [0]~[2]
