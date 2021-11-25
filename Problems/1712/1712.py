@@ -10,10 +10,9 @@ c = int(A[2])
 #expense = a + b*x_input
 #profit = c*x_input 2100000000
 
-for x_input in range(2100000000):
-    if a + b*x_input < c*x_input:
-        print(x_input)
-        break
-    if x_input == 2100000000:
-        print(-1)
-        break 
+
+if b>=c:
+    print(-1)
+else:
+    print(int(a/(c-b))+1)
+
