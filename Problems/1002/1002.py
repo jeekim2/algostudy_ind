@@ -6,15 +6,11 @@
 #(x2-x1)^2+(y2-y1)^2 의 루트 값  =  r1+r2
 #만나는 점 2개
 #(x2-x1)^2+(y2-y1)^2 의 루트 값  <  r1+r2
-a = [1,2,3]
-b = a.remove(1)
-print(b[0])
 
 T = int(input())
 a =[]
 b =[]
 
-'''
 for i in range(T):
     a = input()
     b = a.split()
@@ -30,13 +26,12 @@ for i in range(T):
         a1 = max(((int(b[3])-int(b[0]))**2 + (int(b[4])-int(b[1]))**2)**0.5, int(b[2]),int(b[5]))
         a2 = a0.remove(a1)
 
-        if int(a1) > int(sum((a2))):
-                print(0)
+        if int(a1) > int(sum((a0))):
+            print(0)
 
-        if int(a1) == int(sum((a2))):
-                print(1)
+        elif int(a1) == int(sum((a0))):
+            print(1)
 
-        if int(a1) < int(sum((a2))):
-                print(2)
+        else:
+            print(2)
 
-'''
