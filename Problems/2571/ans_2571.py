@@ -15,6 +15,7 @@ import sys
 # (1) 순차 정렬(Sequential sort) - 시간 초과
 # - 맨 앞에서부터 뒤의 요소들과 비교하여 작은 것을 발견하면 교환
 # - 앞에서 가장 작은 값을 정렬해가는 방식
+# - 시간복잡도 O(N^2)
 # def solve():
 #     N = int(sys.stdin.readline().strip())
 #     num_list=[]
@@ -30,7 +31,8 @@ import sys
 
 # (2) 선택 정렬(Selection sort)
 #  - 첫번째부터 순차적으로 최소값 찾아 교환하기 = 순차 정렬과 같은 개념으로 보임.
-#  - 첫번째에 가장 작은 수를 두고, 두번째에 두번째 작은 수를 둔다. 
+#  - 첫번째에 가장 작은 수를 두고, 두번째에 두번째 작은 수를 둔다.
+# - 시간복잡도 O(N^2) 
 # def solve() :
 #     Arry = [9, 8, 1, 3, 2]
     
@@ -45,15 +47,34 @@ import sys
 # (3) 버블 정렬(Bubble Sort)
 # - 인접한 두 요소를 비교 및 교환해가면서 최대값 찾기
 # - 가장 큰 수는 마지막에 두고, 두번째 큰 수는 마지막에서 두번째에 두기
+# - 시간복잡도 O(N^2)
+# def solve():
+#     Arry = [9, 8, 1, 3, 2]
+    
+#     for i in range(1, len(Arry)):
+#         for j in range(len(Arry)-i):
+#             if Arry[j] > Arry[j+1]:
+#                 Arry[j], Arry[j+1] = Arry[j+1], Arry[j]
+#     print(Arry)
+# (4) 삽입 정렬(Insertion Sort)
+#  - 정렬된 구간과 정렬되지 않은 구간을 나눔 
+#  - 정렬되지 않은 구간의 맨 앞 요소를 정렬된 구간에 삽입
+#  - 시간복잡도 O(N^2) 
+# 어렵다...ㅠ              
 def solve():
     Arry = [9, 8, 1, 3, 2]
     
-    for i in range(1, len(Arry)):
-        for j in range(len(Arry)-i):
-            if Arry[j] > Arry[j+1]:
-                Arry[j], Arry[j+1] = Arry[j+1], Arry[j]
-    print(Arry)               
-    
+    for i in range(1,len(Arry)):
+        key = Arry[i]
+        j=i-1
+        while j>=0 and Arry[j]>key:
+            Arry[j+1]=Arry[j]
+            j-=1
+        Arry[j+1] = key
+    print(Arry)
+            
+                
+        
 if __name__ == "__main__":
     solve()
     
