@@ -13,7 +13,7 @@ X보다 작은 수를 입력받은 순서대로 공백으로 구분해 출력한
 
 N, X = map(int, input("N개 X정수 입력").split(' '))
 A = list(map(int, input("수열 N개 만큼 입력").split(' ')))
-B = list()
+B = []
 
 idx=0
 for i in A:
