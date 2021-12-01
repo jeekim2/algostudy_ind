@@ -61,20 +61,51 @@ import sys
 #  - 정렬되지 않은 구간의 맨 앞 요소를 정렬된 구간에 삽입
 #  - 시간복잡도 O(N^2) 
 # 어렵다...ㅠ              
-def solve():
-    Arry = [9, 8, 1, 3, 2]
+# def solve():
+#     Arry = [9, 8, 1, 3, 2]
     
-    for i in range(1,len(Arry)):
-        key = Arry[i]
-        j=i-1
-        while j>=0 and Arry[j]>key:
-            Arry[j+1]=Arry[j]
-            j-=1
-        Arry[j+1] = key
-    print(Arry)
-            
-                
-        
+#     for i in range(1,len(Arry)):
+#         key = Arry[i]
+#         j=i-1 #key의 왼쪽 : i-1까지는 정렬되어 있는 상태
+#         while j>=0 and Arry[j]>key:
+#             Arry[j+1]=Arry[j]
+#             j-=1
+#         Arry[j+1] = key
+#     print(Arry)
+# (5) 병합 정렬(Merge Sort)
+#  - 요소 1개까지 온전히 나누고, 다시 단계별로 couple로 묶으면서 정렬
+# 점점 더 어려워지는구만....
+def merge(left, right):
+    result = []
+    while len(left)>0 or len(right)>0:
+        if len(left)>0 and len(right)>0:
+            if left[0]<=right[0]:
+                result.append(left[0])
+                left = left[1:]
+            else:
+                result.append(right[0])
+                right = right[1:]
+        elif len(left)>0:
+            result.append(left[0])
+            left = left[1:]
+        elif len(right)>0:
+            result.append(right[0])
+            right = right[1:]
+        else:
+            pass
+    return result
+
+def solve(Arry):
+    if len(Arry)<=1:
+        return Arry
+    mid = len(Arry)//2
+    leftArea = Arry[:mid]
+    rightArea = Arry[mid:] 
+    leftArea=solve(leftArea)
+    rightArea=solve(rightArea)
+    
+    return merge(leftArea,rightArea)
+       
 if __name__ == "__main__":
-    solve()
+    print(solve([9, 8, 1, 3, 2]))
     
