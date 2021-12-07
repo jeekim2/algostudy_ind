@@ -55,27 +55,32 @@ import sys
 #     for x in Num_list:
 #         print(x)
 
-# (4) 삽입 정렬(Insertion Sort)
-#  - 정렬된 구간과 정렬되지 않은 구간을 나눔 
-#  - 정렬되지 않은 구간의 맨 앞 요소를 정렬된 구간에 삽입
-#  - 시간복잡도 O(N^2) 
-# 어렵다...ㅠ              
-# def solve():
-#     Arry = [9, 8, 1, 3, 2]
+# (4) 삽입 정렬(Insertion Sort) - 시간초과
+#  - 비교 알고리즘 : 이미 정렬된 자료들 + Index의 맞는 위치 찾고 삽입 
+#  - 시간복잡도 : O(N^2)              
+# def Insertion_Sort():
+#     N = int(sys.stdin.readline().strip())
+#     Num_list=[]
+#     # Index 입력 받기
+#     while (len(Num_list)<N):
+#         Num_list.append(int(sys.stdin.readline().strip()))
     
-#     for i in range(1,len(Arry)):
-#         key = Arry[i]
+#     for i in range(1,len(Num_list)):
+#         key = Num_list[i] # key : 삽입할 Index
 #         j=i-1 #key의 왼쪽 : i-1까지는 정렬되어 있는 상태
-#         while j>=0 and Arry[j]>key:
-#             Arry[j+1]=Arry[j]
+#         while j>=0 and Num_list[j]>key:
+#             Num_list[j+1]=Num_list[j]
 #             j-=1
-#         Arry[j+1] = key
-#     print(Arry)
+#         Num_list[j+1] = key
+#     for x in Num_list:
+#         print(x)
+
 # (5) 병합 정렬(Merge Sort)
-#  - 요소 1개까지 온전히 나누고, 다시 단계별로 couple로 묶으면서 정렬
-# 점점 더 어려워지는구만....
-# def merge(left, right):
-#     result = []
+# - 비교 알고리즘 : 분할(배열 크기 = 1까지)+정복(부분 배열 정렬)+합병(새로운 리스트에 복사 후 적용)
+# - 시간복잡도 : O(N*logN)
+# - 연결리스트로 구성하면 가장 효율적
+# def Merge(left, right):
+#     result = [] # 새로운 List
 #     while len(left)>0 or len(right)>0:
 #         if len(left)>0 and len(right)>0:
 #             if left[0]<=right[0]:
@@ -94,16 +99,26 @@ import sys
 #             pass
 #     return result
 
-# def solve(Arry):
+# def Devide_Merge(Arry):
 #     if len(Arry)<=1:
 #         return Arry
 #     mid = len(Arry)//2
 #     leftArea = Arry[:mid]
 #     rightArea = Arry[mid:] 
-#     leftArea=solve(leftArea)
-#     rightArea=solve(rightArea)
+#     leftArea=Devide_Merge(leftArea)
+#     rightArea=Devide_Merge(rightArea)
     
-#     return merge(leftArea,rightArea)
+#     return Merge(leftArea,rightArea)
+
+# def Merge_Sort():
+#     N = int(sys.stdin.readline().strip())
+#     Num_list=[]
+#     # Index 입력 받기
+#     while (len(Num_list)<N):
+#         Num_list.append(int(sys.stdin.readline().strip()))
+#     result = Devide_Merge(Num_list)
+#     for x in result:
+#         print(x)
 # (6) 퀵 정렬(Quick Sort)
 #  - Pivot을 중심으로 왼쪽은 작은 수의 정렬, 오른쪽은 큰 수의 정렬
 # def quick_sort(Arry, start, end):
@@ -131,4 +146,4 @@ import sys
 #     quick_sort(Arry,0,len(Arry)-1)
 #     print(Arry)
 if __name__ == "__main__":
-    Bubble_Sort()
+    Merge_Sort()
