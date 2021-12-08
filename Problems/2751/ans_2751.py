@@ -119,31 +119,50 @@ import sys
 #     result = Devide_Merge(Num_list)
 #     for x in result:
 #         print(x)
+
 # (6) 퀵 정렬(Quick Sort)
-#  - Pivot을 중심으로 왼쪽은 작은 수의 정렬, 오른쪽은 큰 수의 정렬
-# def quick_sort(Arry, start, end):
+#  - 비교 알고리즘 : 분할(비균등 배열 - under Pivot vs over Pivot)+정복(부분 배열 정렬)+결합
+#  - 시간 복잡도 : O(N*logN)
+# def Quick_Sort(Arry, start, end): #일반
 #     if start>=end:
 #         return
 #     pivot = start
-#     left = start+1
-#     right = end
+#     low = start+1
+#     high = end
     
-#     while (left <= right):
-#         while (left <= end and Arry[left]<=Arry[pivot]):
-#             left+=1
-#         while (start<right and Arry[pivot]<=Arry[right]):
-#             right-=1
-#         if (left > right):
-#             Arry[right], Arry[pivot] = Arry[pivot], Arry[right]
+#     while (low <= high):
+#         while (low <= end and Arry[low]<=Arry[pivot]):
+#             low+=1
+#         while (start<high and Arry[pivot]<=Arry[high]):
+#             high-=1
+#         if (low > high):
+#             Arry[high], Arry[pivot] = Arry[pivot], Arry[high]
 #         else:
-#             Arry[left], Arry[right] = Arry[right], Arry[left]
+#             Arry[low], Arry[high] = Arry[high], Arry[low]
         
-#     quick_sort(Arry, start, right-1)
-#     quick_sort(Arry, right+1, end)
+#     Quick_Sort(Arry, start, high-1)
+#     Quick_Sort(Arry, high+1, end)
+def Quick_Sort(Arry): #Simple Quick
+    if len(Arry)<=1:
+        return Arry
+    pivot, tail = Arry[0], Arry[1:]
     
-# if __name__ == "__main__":
-#     Arry = [9, 8, 1, 3, 2]
-#     quick_sort(Arry,0,len(Arry)-1)
-#     print(Arry)
+    left = [x for x in tail if x < pivot]
+    right = [y for y in tail if y > pivot]
+    
+    return Quick_Sort(left)+[pivot]+Quick_Sort(right)
+
+def Merge_Sort():
+    N = int(sys.stdin.readline().strip())
+    # global Num_list #일반 Quick
+    Num_list=[]
+    # Index 입력 받기
+    while (len(Num_list)<N):
+        Num_list.append(int(sys.stdin.readline().strip()))
+    #Quick_Sort(Num_list,0,len(Num_list)-1)     #일반 Quick
+    Num_list=Quick_Sort(Num_list)
+    for x in Num_list:
+        print(x)
+    
 if __name__ == "__main__":
     Merge_Sort()
