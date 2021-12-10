@@ -1,34 +1,22 @@
 #https://programmers.co.kr/learn/courses/30/lessons/42576?language=python3
-'''
+
 def solution(participant, completion):
-    
-    answer = 
-    return answer
+    participant.sort()
+    completion.sort()
+    for i in range(len(completion)):
+        if participant[i] != completion[i]:
+            return participant[i]
+        if i == len(completion) - 1:
+            return participant[-1]
+
+#문제를 잘못 이해함, 1명만 차이나는 것을 못봄 
+#좋은 답변
 '''
-participant = input().split()
-completion = input().split()
+import collections
 
-ans =[]
-
-i = 0 
-j = 0
-for i in range(len(participant)-1):
-    for j in range (len(participant)-1):
-        if participant[i] != completion[j]:           
-            print("participant:",participant)
-            print("completion:",completion)
-            print(1)
-
-        else:
-            if participant[i]!= " " and completion[j]!= " ":
-                participant.remove(participant[i])
-                participant.insert(i," ")
-                completion.remove(completion[j])
-                completion.insert(j," ")
-                print("participant:",participant)
-                print("completion:",completion)
-                print(2)
-
-
-    i = i +1
-print(participant)
+def solution(participant, completion):
+    participant.sort()
+    completion.sort()
+    ans = collections.counter(participant)-collections.counter(completion)
+    result list(result)[0]
+'''
