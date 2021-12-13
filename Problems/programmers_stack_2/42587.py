@@ -1,7 +1,7 @@
 #https://programmers.co.kr/learn/courses/30/lessons/42587
 def solution(priorities, location):
 
-    loc = [i for i in range(len(priorities))] #  값 복사
+    loc = [i for i in range(len(priorities))] #  priority
     final_loc = [] #정렬 이후 최종 location 값 , 정답
 
     while len(priorities)!= 0: #정렬 다되면 종료
