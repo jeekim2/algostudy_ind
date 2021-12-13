@@ -67,4 +67,4 @@ def solve_2():
 
 if __name__ == '__main__':
     solve_1() # 일반적인 Back-Tracking 방법
-    solve_2() # permutations module 사용하는 방법
+    # solve_2() # permutations module 사용하는 방법
