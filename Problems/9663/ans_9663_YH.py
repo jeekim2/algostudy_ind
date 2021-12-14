@@ -2,6 +2,8 @@
 
 import sys
 # 시간초과 발생
+# 파이썬으로 백트래킹 구현이 쉽지 않고, NQueen 문제에 적합하지 않은 언어라고 한다.
+# 최적화에 대해서 다시 고민해봐야겠다.
 def PromisingCheck(row):
     
     for i in range(row):
