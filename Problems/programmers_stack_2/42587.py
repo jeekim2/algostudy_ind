@@ -14,4 +14,3 @@ def solution(priorities, location):
 
     return final_loc.index(location)+ 1
 
-print(solution([2, 1, 3, 2],2))

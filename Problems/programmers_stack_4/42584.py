@@ -1,5 +1,6 @@
 #https://programmers.co.kr/learn/courses/30/lessons/42584
 # 내가 제출한 답, 정확성은 맞았으나 효율성에서 실패 함
+'''
 def solution(prices):
     answer = []
     cnt = 0
@@ -26,9 +27,10 @@ def solution(prices):
             temp = prices[1:len(prices)]     
 
     return answer
+'''
 
+#다른 사람 풀이/ 다른 사람 풀이 이긴 한데 구조가 간단하고 해서 같은 구조를 외워서 다른 문제 사용 가능할듯 합니다.
 
-#다른 사람 풀이
 
 def solution(prices):
     result =[0]*len(prices) # 우선 가격에 대해 0으로 모두 채워 넣는다
