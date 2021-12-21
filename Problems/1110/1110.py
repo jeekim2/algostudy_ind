@@ -1,4 +1,5 @@
 #https://www.acmicpc.net/problem/1110
+'''
 import math
 inputVal = int(input())     #26
 #in1 = math.floor(inputVal/10)
@@ -23,4 +24,16 @@ while True:
     else:
         print(len(input)-2)  
         break
-     
+'''     
+a = int(input())
+b  = -1
+count = 0
+
+while b!=a:
+    if b == -1:
+        b = a
+    b = (b//10 + b%10)%10 + (b%10)*10
+    count = count +1
+
+print(count)
+
