@@ -19,4 +19,3 @@ def solution(numbers):
     return answer
 
 
-print(solution([-1,-3,6,1,2,4]))

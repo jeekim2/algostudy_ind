@@ -15,4 +15,3 @@ def solution(arr1,arr2,arr3):
     answer = temp2_arr
     return answer
 
-print(solution([1,2,3],[2,3,4],[3,4,65]))

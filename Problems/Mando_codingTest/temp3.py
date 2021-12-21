@@ -21,4 +21,3 @@ def solution(numbers):
 
     return answer
 
-print(solution([6, 1, 6, 6, 7, 5, 6, 7]))
