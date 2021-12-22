@@ -1,29 +1,37 @@
-# import math
+# https://www.acmicpc.net/problem/2581
+# 문제 : 자연수 M이상 N이하에 존재한 소수의 합과 최솟값을 찾는 프로그램 작성
+# input : M, N
 
+M = int(input()) #M 이상
+N = int(input()) #N 이하
 
-def is_prime_num(n,m):
-    arr = [True] * (m - n + 1) #소수가 삭제되었는지 확인하는 배열 선언
-    
-    f=0
-    j = n
-    if j==1:
-        arr[f] = True
-        f = 1
-        j = n +1
-    while j <= m//2:
-        i = 2
-        while i <= m//2:
-            if j%i != 0:
-                arr[f] = False
-                j = j+1
-                break
-            if i == m//2:
-                print(arr[f])
-            j = j+1
-    return arr
+sum = 0
+min = 0
 
-arr = is_prime_num(1, 5)
-print(arr)
-for i in range(1, 5):
-    if arr[i] == True:
-        print(i, end=' ')
+if N <= 2:
+    if N == 2:
+        sum = 2
+        min = 2
+
+else:
+    for i in range(N,M-1,-1):
+        n = 2
+        if i == 1:
+            cnt = cnt
+        elif i == 2:
+            cnt = cnt + 1
+        else:
+            while n < i:
+                if i % n == 0:
+                    # n = n +1
+                    break
+                if n == i - 1:
+                    sum = sum +i
+                    min = i
+                n = n + 1
+
+if sum==0 and min == 0:
+    print('-1')
+else:
+    print(sum)
+    print(min)
