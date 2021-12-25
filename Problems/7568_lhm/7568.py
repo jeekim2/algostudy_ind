@@ -1,3 +1,4 @@
+#https://www.acmicpc.net/problem/7568
 T = int(input())
 ans = []
 for i in range(T):
