@@ -15,7 +15,7 @@ def solve():
         if comp == []:
             if v > 0:
                 comp.append(v)
-        elif (v >= 0 and comp[-1] > 0) or (v < 0 and comp[-1] < 0):
+        elif (v >= 0 and comp[-1] > 0) or (v <= 0 and comp[-1] < 0):
             comp[-1] += v
         else:
             comp.append(v)
