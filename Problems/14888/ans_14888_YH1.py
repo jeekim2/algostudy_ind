@@ -2,7 +2,7 @@
 
 import sys
 
-#백트래킹 방식에 대한 생각 틀을 정립해봐야겠다....
+#백트래킹 방식에 대한 생각 틀을 정립해봐야겠다....#
 def solve():
     input = sys.stdin.readline
     n = int(input())
