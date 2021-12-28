@@ -9,6 +9,7 @@
 # 대각선 : abs(row[index]-row[i] == index-i)
 
 def queen(index):
+    global row
     
     for i in range(index):
         if row[index] == row[i] or abs(row[index]-row[i]) == (index-i):
@@ -17,13 +18,14 @@ def queen(index):
 
 def dfs(index,N):
     global cnt
+    global row
     
     if index == N: # 퀸의 갯수가 N개에 도달하여 완료된다면 cnt 증가 (조건 만족)
         cnt += 1
     else:          # 퀸의 갯수가 N개에 도달하지 못하면, dfs로 계속해서 겹치는 조건 확인
         for i in range(N):
             row[index] = i
-            if queen(index): # 유망한 노드 확인 : 대각선/같은 행 위치 여부 확인 (Ture일 경우만 패스)
+            if queen(index): # 유망한 노드 확인 : 대각선/같은 행 위치 여부 확인 (Ture일 경우만)
                 dfs(index+1,N)
 
 def solve():
