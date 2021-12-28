@@ -4,7 +4,7 @@
 #현재 유망 여부를 따지는 방식으로 For문과 재귀호출 형태로 계속 풀고 있는데,
 #아직 접근하는데 시간도 오래 걸리고 복잡하게 접근하고 있다는 생각...
 import sys
-
+ 
 def solve():
     input = sys.stdin.readline
     global operand, operator, n, result, final
