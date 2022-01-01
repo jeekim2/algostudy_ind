@@ -6,21 +6,22 @@ import sys
 def solve():
     input = sys.stdin.readline
     N = int(input())
-    char = []
-    cnt, check = 0, False
+    char_list = []
+    cnt= 0
     for _ in range(N):
-        char.append(input().rstrip())
+        char_list.append(input().rstrip())
 
-    for c in char:
-        cnt+=1
-        for i in range(len(c)):
-            temp = c.count(c[i])
-            if temp > 1 and c[i] != c[i+temp-1]:
-                check = True
-        if check == True:
-            cnt-=1
-            check = False
-                    
+    for char in char_list:
+        if len(char) != len(set(char)):
+            cnt1 = 1
+            
+            for i in range(len(char)-2):
+                if char[i] in char[i+2:]:
+                    cnt1 = 0
+            cnt+=cnt1
+        else:
+            cnt+=1
+                   
     print(cnt)
 
 if __name__ == "__main__":
