@@ -10,17 +10,20 @@ for i in range(T):
     [x,y] = map(int,input().split())
     temp.append([x,y])
 
-
-
-
 #temp.sort()
 
-while temp:
-    ans.append(min(temp))
-    temp.pop(temp.index(min(temp)))
-##위에 whlie temp 부분이 sort 대신쓰려고 넣은건데 계속 시간 초과 가 뜨네.... 왜그런지 아시는분
+for i in range(len(temp)-1):
+    for j in range(i+1,len(temp)):
+        if temp[i][0] > temp[j][0]:
+            temp[i][0], temp[j][0] = temp[j][0], temp[i][0]
+            temp[i][1], temp[j][1] = temp[j][1], temp[i][1]
+
+for i in range(len(temp)-1):
+    for j in range(i+1,len(temp)):
+        if temp[i][1] > temp[j][1]:
+            temp[i][0], temp[j][0] = temp[j][0], temp[i][0]
+            temp[i][1], temp[j][1] = temp[j][1], temp[i][1]
 
 
-
-for i in range(len(ans)):
-    print(ans[i][0], ans[i][1])
+for i in range(len(temp)):
+    print(temp[i][0], temp[i][1])
