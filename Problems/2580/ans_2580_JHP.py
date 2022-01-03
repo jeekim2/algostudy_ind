@@ -7,57 +7,62 @@
 
 import sys
 
-def isCorrect(x,y): # 유망한 숫자 검사 조건
-    global board
-    global nums
-    
+def line_check(x,y,num):
+    # row 확인   
     for i in range(0,9):
-        # (1) 가로, 세로 줄에 동일 숫자가 있으면 안됨
-        if board[x][y] == board[i][y]:
-            nums.remove(board[x][i])
-        if board[x][y] == board[x][i]:
-            nums.remove(board[i][y])
-        
-        # (2) 3x3 내 숫자 찾기
-        x //= 3
-        y //= 3
-        for j in range(x*3,(x+1)*3):
-            for k in range(y*3,(y+1)*3):
-                if board[j][k] in nums:
-                    nums.remove(board[j][k])
-        return nums
-                
-def findNum(x,y):
+        if i != y:
+            if board[x][i] == num and board[x][i]!=0:
+                return False
+    # column 확인
+    for j in range(0,9):
+        if j != x:
+            if board[j][y] == num and board[j][y]!=0:
+                return False     
+    return True
+
+def box_check(x,y,num):
+    n_x = x//3 # 3x3
+    n_y = y//3 # 3x3
+
+    for i in range(n_x*3, (n_x+1)*3):
+        for j in range(n_y*3, (n_y+1)*3):
+            if board[i][j] == num and board[i][j]!=0:
+                return False
+    return True
+
+def dfs(index):
     global board
     global check
     
     if check == True:
         return
-    if x == 9:  # row 완료 이후
-        for row in board:
-            print(*row)
-        check = True
-        return check
     else:
-        result = isCorrect(x,y)
-        for val in result:
-            board[x][y] = val
-            findNum(x+1,0)
-            board[x][y] = 0
+        for i in range(9):
+            for j in range(9):
+                if board[i][j] == 0:
+                    for val in range(1,10):
+                        if line_check(i,j,val) == True:
+                            if box_check(i,j,val) == True:
+                                board[i][j] = val
+                                dfs(index+1)
+
+    if index == 9:
+        for row in board:
+            for val in row:
+                print(val, end=' ')
+            print()
 
 def solve():
     global board
-    global nums
     global check
-    
     input = sys.stdin.readline
     board = []
-    nums  = [1,2,3,4,5,6,7,8,9]
-    check = [False]
-    
+    check = False
+
     for i in range(9):
         board.append(list(map(int,input().split())))
-    findNum(0,0)
+
+    dfs(0) 
 
 if __name__ == "__main__":
-    solve()
+    solve() 
