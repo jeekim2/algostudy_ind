@@ -11,7 +11,7 @@ for i in range(T):
     temp.append([x,y])
 
 #temp.sort()
-
+'''
 for i in range(len(temp)-1):
     for j in range(i+1,len(temp)):
         if temp[i][0] > temp[j][0]:
@@ -27,3 +27,13 @@ for i in range(len(temp)-1):
 
 for i in range(len(temp)):
     print(temp[i][0], temp[i][1])
+'''
+
+
+while len(temp)>0:
+    ans.append(min(temp))
+    temp.remove((min(temp)))
+
+
+for i in range(len(ans)):
+    print(ans[i][0], ans[i][1])
