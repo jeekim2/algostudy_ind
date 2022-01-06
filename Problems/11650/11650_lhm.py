@@ -3,20 +3,20 @@ import sys
 input = sys.stdin.readline
 T = int(input())
 temp = []
-ans = []
+
 
 
 for i in range(T):
-    [x,y] = map(int,input().split())
+    x,y = map(int,input().split())
     temp.append([x,y])
 
 #temp.sort()
 
-def quick_sort(list):
-    if len(list) <=1 : return list
-    pivot = list[len(list)//2]
+def quick_sort(arry):
+    if len(arry) <=1 : return arry
+    pivot = arry[len(arry)//2]
     less_arr, equal_arr, big_arr = [],[],[]
-    for i in list:
+    for i in arry:
         if i < pivot : less_arr.append(i)
         elif i > pivot : big_arr.append(i)
         else: equal_arr.append(i)
