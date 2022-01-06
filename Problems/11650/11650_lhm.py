@@ -11,28 +11,20 @@ for i in range(T):
     temp.append([x,y])
 
 #temp.sort()
-'''
-for i in range(len(temp)-1):
-    for j in range(i+1,len(temp)):
-        if temp[i][0] > temp[j][0]:
-            temp[i][0], temp[j][0] = temp[j][0], temp[i][0]
-            temp[i][1], temp[j][1] = temp[j][1], temp[i][1]
 
-for i in range(len(temp)-1):
-    for j in range(i+1,len(temp)):
-        if temp[i][1] > temp[j][1]:
-            temp[i][0], temp[j][0] = temp[j][0], temp[i][0]
-            temp[i][1], temp[j][1] = temp[j][1], temp[i][1]
+def quick_sort(list):
+    if len(list) <=1 : return list
+    pivot = list[len(list)//2]
+    less_arr, equal_arr, big_arr = [],[],[]
+    for i in list:
+        if i < pivot : less_arr.append(i)
+        elif i > pivot : big_arr.append(i)
+        else: equal_arr.append(i)
+    return quick_sort(less_arr) + equal_arr + quick_sort(big_arr)
 
 
-for i in range(len(temp)):
-    print(temp[i][0], temp[i][1])
-'''
+ans = quick_sort(temp)
 
-
-while len(temp)>0:
-    ans.append(min(temp))
-    temp.remove((min(temp)))
 
 
 for i in range(len(ans)):
