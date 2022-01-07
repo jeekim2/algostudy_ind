@@ -2,6 +2,8 @@
 # 2022-01-04 : 오늘 야근으로 인한 draft commit
 # 2022-01-05 : 발전이 없네...후... 재귀 input과 return 값을 못 구하겠군..
 # 2022-01-06 : 입력부터 난제... 문자 중복 제외하는 것도 난제...
+# 2022-01-07 : 생략...
+
 import sys
 
 def solve():
@@ -11,12 +13,12 @@ def solve():
     global nodes
     N = int(input())
     nodes = []
-    result = []
     for _ in range(N):
         a,b,c = map(str,input().split())
-        nodes.append(a) # root : 1st index, left : 2*index + 1, right : 2*index + 2
-        nodes.append(b)
+        nodes.append(b) # root : 1st index, left : 2*index + 1, right : 2*index + 2
         nodes.append(c)
+    nodes.insert(0,a)
+    result = []
     binary_tree(0)
     print(result)
 
