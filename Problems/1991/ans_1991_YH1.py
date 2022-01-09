@@ -12,23 +12,26 @@ def solve():
     global result
     global nodes
     N = int(input())
-    nodes = []
+    nodes, result = [], []
     for _ in range(N):
-        a,b,c = map(str,input().split())
-        nodes.append(b) # root : 1st index, left : 2*index + 1, right : 2*index + 2
-        nodes.append(c)
-    nodes.insert(0,a)
-    result = []
-    binary_tree(0)
+        temp = list(map(str,input().split()))
+        for x in temp:
+            nodes.append(x)
+    #3n : root, 3n+1 : left, 3n+2 : right
+    print(nodes)
+    binary_tree1(0)
     print(result)
 
-def binary_tree(idx):
-    left, right = 2*idx+1, 2*idx+2
-    if len(result) == N : return
-    #전위순회
-    result.append(nodes[idx])
-    if left <= N and nodes[left] != '.': return binary_tree(left)
-    if right <= N and nodes[right] != '.': return binary_tree(right)
+def binary_tree1(idx): #전위 순회
+    if (3*idx+1 > 3*N or 3*idx+2 > 3*N) : return
+    if idx == 0: 
+        result.append(nodes[3*idx])
+    if nodes[3*idx+1] !='.':
+        result.append(nodes[3*idx+1])
+        binary_tree1(3*idx+1)
+    if nodes[3*idx+2] !='.':
+        result.append(nodes[3*idx+2])
+        binary_tree1(3*idx+2)
 
 if __name__ == "__main__":
     solve()
