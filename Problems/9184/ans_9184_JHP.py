@@ -18,7 +18,9 @@ def w_to(a,b,c):
 def w(a,b,c):
     global w_mem
     
-    if a <= 0 or b <= 0 or c <= 0:
+    if w_mem.get((a,b,c)) != None: # 연산 값에 대해 memoization 수행
+        return w_mem[(a,b,c)]
+    elif a <= 0 or b <= 0 or c <= 0:
         return 1
     elif a > 20 or b > 20 or c > 20:
         w_mem[(20, 20, 20)] = w(20,20,20)
@@ -46,7 +48,7 @@ def solve():
             
     for val in temp_input:
         a,b,c = val
-        print(f'w({a},{b},{c}) = {w(a,b,c)}')
+        print(f'w({a}, {b}, {c}) = {w(a,b,c)}')
 
 if __name__ == '__main__':
     solve()
