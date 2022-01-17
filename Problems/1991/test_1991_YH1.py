@@ -7,4 +7,4 @@ def test_1991_1(monkeypatch, capsys):
     solve()
     captured = capsys.readouterr()
     print(captured.out)
-    assert captured.out == "ABDCEFG\n"
+    assert captured.out == "ABDCEFG\nDBAECFG\nDBEGFCA\n"

@@ -1,8 +1,4 @@
 # https://www.acmicpc.net/problem/1991
-# 2022-01-04 : 오늘 야근으로 인한 draft commit
-# 2022-01-05 : 발전이 없네...후... 재귀 input과 return 값을 못 구하겠군..
-# 2022-01-06 : 입력부터 난제... 문자 중복 제외하는 것도 난제...
-# 2022-01-07 : 생략...
 
 import sys
 
@@ -12,26 +8,33 @@ def solve():
     global result
     global nodes
     N = int(input())
-    nodes, result = [], []
+    nodes = {}
     for _ in range(N):
-        temp = list(map(str,input().split()))
-        for x in temp:
-            nodes.append(x)
-    #3n : root, 3n+1 : left, 3n+2 : right
-    print(nodes)
-    binary_tree1(0)
-    print(result)
+        a,b,c = map(str,input().split())
+        nodes[a] = [b,c] # {root : [left, right]} 형태로 입력
 
-def binary_tree1(idx): #전위 순회
-    if (3*idx+1 > 3*N or 3*idx+2 > 3*N) : return
-    if idx == 0: 
-        result.append(nodes[3*idx])
-    if nodes[3*idx+1] !='.':
-        result.append(nodes[3*idx+1])
-        binary_tree1(3*idx+1)
-    if nodes[3*idx+2] !='.':
-        result.append(nodes[3*idx+2])
-        binary_tree1(3*idx+2)
+    root = list(nodes.keys()) #root node들의 모임
+    for i in range(3):
+        result=[]
+        binary_tree(root[0],i)
+        print("".join(result))
+
+def binary_tree(root, mode):
+    if mode == 0: #전위 순회 - root > left > right
+        if root != '.':
+            result.append(root)
+            binary_tree(nodes[root][0],0)
+            binary_tree(nodes[root][1],0)
+    elif mode == 1: #중위 순회 - left > root > right
+        if root != '.':
+            binary_tree(nodes[root][0],1)
+            result.append(root)
+            binary_tree(nodes[root][1],1)
+    else: #mode == 2: 후위 순회 - left > right > root
+        if root != '.':
+            binary_tree(nodes[root][0],2)
+            binary_tree(nodes[root][1],2)
+            result.append(root)
 
 if __name__ == "__main__":
     solve()
