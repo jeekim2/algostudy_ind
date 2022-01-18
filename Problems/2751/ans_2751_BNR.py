@@ -1,3 +1,5 @@
+# https://www.acmicpc.net/problem/2751
+
 
 N = int(input())
 array = []
@@ -56,4 +58,7 @@ def merge_sort(arr):
 
     return merge(left1, right1)     #나누고 merge call
 
-print(merge_sort(array))
+result = merge_sort(array)
+
+for i in result:
+    print(i)
