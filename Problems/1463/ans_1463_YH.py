@@ -1,7 +1,7 @@
 #https://www.acmicpc.net/problem/1463
 
 # Bottom-Up 방식
-def solve():
+def solve1():
     N = int(input())
     dp = [0]*(N+1) #초기화, dp[n] - 입력 n에 대한 연산 횟수의 최소값
     if N == 1:
@@ -19,5 +19,20 @@ def solve():
                 dp[i] = dp[i-1]+1
         print(dp[N])
 
+# Top-Down 방식
+def solve2():
+    N = int(input())
+    global memo
+    memo = {1:0, 2:1}
+    print(dp(N))
+
+def dp(n):
+    if n not in memo : 
+        result = min(dp(n//3)+n%3, dp(n//2)+n%2)+1 # 3계단 또는 2계단 또는 1계단 오르는 계단 오르기 문제와 비슷
+        memo[n] = result
+        return result
+    return memo[n]
+
 if __name__ == "__main__":
-    solve()
+    solve1()
+    solve2()
