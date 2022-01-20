@@ -39,10 +39,6 @@ def mergeSort(s, e):
         merge(s, e, m)
 
 
-def quickSort():
-    return
-
-
 def solve():
     input = sys.stdin.readline
     global inData
