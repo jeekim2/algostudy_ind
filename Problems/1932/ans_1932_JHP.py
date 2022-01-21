@@ -13,14 +13,13 @@ def solve():
     level = 2
     
     for i in range(1,n):
-        for j in range(level): # n+1번째 줄까지
+        for j in range(i+1): # n+1번째 줄까지
             if j == 0: # 맨 첫번째 숫자
                 floor_num[i][j] += floor_num[i-1][j]
             elif j == i: # 맨 마지막 숫자 (정삼각형이므로)
                 floor_num[i][j] += floor_num[i-1][j-1]
             else: # 가운데 숫자
                 floor_num[i][j] += max(floor_num[i-1][j-1],floor_num[i-1][j]) # 더 큰 숫자를 더하기 위함.
-        level += 1
     print(max(floor_num[-1])) # 마지막 합의 최종 숫자 중 큰 수 출력
 
 if __name__ == "__main__":
