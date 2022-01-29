@@ -4,12 +4,12 @@
 # 출력 : 첫째 줄부터 N개의 오름차순 정렬 결과
 # 시간 복잡도가 O(n²)인 정렬 알고리즘. (예)삽입 정렬, 거품 정렬 등
 
-def insert_sort():
+def bubble_sort():
     global num
-    for i in range(1,N):
-        while i > 0 and num[i] < num[i-1]:
-            num[i], num[i-1] = num[i-1], num[i]
-            i -= 1
+    for i in range(N-1, 0, -1):
+        for j in range(i):
+            if num[j] > num[j + 1]:
+                num[j], num[j + 1] = num[j + 1], num[j]
     return num
 
 def solve():
@@ -20,7 +20,7 @@ def solve():
     for i in range(N):
         num[i] = int(input())
     
-    for val in insert_sort():
+    for val in bubble_sort():
         print(val)
     
 if __name__ == '__main__':
