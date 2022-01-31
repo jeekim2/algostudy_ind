@@ -14,7 +14,7 @@ def solve():
             elif j == 9:
                 dp[i][j] = dp[i-1][8]
             else:
-                dp[i][j] = dp[i-1][j-1]+dp[i-1][j+1]
+                dp[i][j] = dp[i-1][j-1]+dp[i-1][j+1] 
     print(sum(dp[N])%10**9)
     
 if __name__ == "__main__":
