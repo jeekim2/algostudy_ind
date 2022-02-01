@@ -6,27 +6,25 @@
 # 접근 : max
 
 import sys
-from unittest import result
 
 def seq_cnt(N):
     global A
     memo_a = [1]*N
     memo_d = [1]*N
+    memo = [1]*N
     for i in range(N):
         for j in range(i):
             if A[j] < A[i]:
                 memo_a[i] = max(memo_a[i], memo_a[j]+1)
-    
-    for idx, cnt in enumerate(memo_a):
-        if cnt == max(memo_a):
-            temp_idx = idx
 
-    for i in range(N-1,temp_idx-1,-1):
+    for i in range(N-1,-1,-1):
         for k in range(N-1,i,-1):
             if A[k] < A[i]:
                 memo_d[i] = max(memo_d[i], memo_d[k]+1)
-    ans = max(memo_a)+max(memo_d)-1
-    return ans
+        
+    for i in range(N):
+        memo[i] = memo_a[i]+memo_d[i]-1
+    return max(memo)
 
 def solve():
     global A
