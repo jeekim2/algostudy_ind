@@ -20,7 +20,7 @@ def solve():
         for i in range(c, K + 1):
             dic[i] += dic[i - c]
             # c 동전을 이용해 i 값를 만들 수 있는 방법은 i-c 값을 만드는 갯수와 같다.
-
+    print(dic[-1])
     return
 
 
