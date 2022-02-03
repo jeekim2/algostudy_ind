@@ -1,5 +1,4 @@
 #https://www.acmicpc.net/problem/2630
-
 import sys
 input = sys.stdin.readline
 N = int(input())
