@@ -19,7 +19,7 @@ import sys
 #         else: result.append("YES")
 #     print("\n".join(result))
 
-def solve2(): #Pass
+def solve2(): #Pass - 탐색으로 풀이
     input = sys.stdin.readline
     T = int(input())
     for _ in range(T):
@@ -34,6 +34,25 @@ def solve2(): #Pass
                 stack.pop()
         if len(stack) == 0 : print("YES")
         else : print("NO")
+        
+def solve3(): #Pass - Stack 개념으로 풀이
+    input = sys.stdin.readline
+    T = int(input())
+    for _ in range(T):
+        PS = list(input().rstrip())
+        stack = []
+        NOK = False
+        for x in PS:
+            if x == '(':
+                stack.append(x)
+            elif len(stack) and stack[-1] == '(':
+                stack.pop()
+            else:
+                NOK = True
+        if not len(stack) and not NOK: 
+            print("YES")
+        else : 
+            print("NO")
 
 if __name__ == "__main__":
-    solve2()
+    solve3()
