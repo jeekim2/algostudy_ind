@@ -12,11 +12,18 @@ def solve1():
     
 #Top-Down
 #메모이제이션 적용해도 입력 최대 1000에 따른 Recursion 1000 초과됨에 따라 Recursion Error발생(백준 기준)
+# --> 지환이형 조언에 따라 아래서부터 호출하는 풀이로 Pass
 def solve2():
     N = int(input())
     global memo
-    memo = [0]*1001
+    memo = {0:0, 1:1, 2:2}
+    
+    i=3
+    while i<N:
+        dp(i)
+        i+=1
     print(dp(N)%10007)
+        
     
 def dp(n):
     if n <=2 :
@@ -28,5 +35,5 @@ def dp(n):
     return memo[n]
 
 if __name__=="__main__":
-    solve1()
-    # solve2()
+    #solve1()
+    solve2()
