@@ -28,20 +28,24 @@ class Stack:
 
 def solve():
     N = int(input())
-    Seq = []
+    cnt=1
     stack = Stack()
+    output = []
     for _ in range(N):
-        Seq.append(int(input()))
-    i, k=1, 0
-    stack.push(i)
-    while not stack.is_empty():
-        i+=1
-        if stack.peak() == Seq[k]:
+        num = int(input())
+        while cnt <= num:
+            stack.push(cnt)
+            output.append("+")
+            cnt+=1
+        
+        if stack.peak() == num:
             stack.pop()
-            print("-")
+            output.append("-")
         else:
-            stack.push(i)
-            print("+")
+            output = ["NO"]
+            break
+    for x in output:
+        print(x)
 
 if __name__ == "__main__":
     solve()
