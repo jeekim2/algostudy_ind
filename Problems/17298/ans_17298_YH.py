@@ -5,3 +5,10 @@
 #
 #
 #
+def solve():
+    N = int(input())
+    A
+    return
+
+if __name__ =="__main__":
+    solve()
