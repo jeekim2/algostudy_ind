@@ -5,31 +5,41 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+        self.prev = None
 class Queue:
     def __init__(self):
         self.head = Node(None)
         self.tail = Node(None)
-        self.head = self.tail
-        self.size = 0
+        self.qsize = 0
     
     def enqueue(self,data):
         NewNode = Node(data)
-        self.tail.next = NewNode
-        self.tail = self.tail.next
-        self.size+=1
+        if self.front() is None:
+            self.head = NewNode
+            self.tail = NewNode
+            self.head.next = self.tail
+            print(1)
+            print(2)
+        else:
+            self.tail.next = NewNode 
+            self.tail = NewNode
+            self.qsize+=1
+        # print(self.front())
+        print(self.front() is None)
+        
+
 
     def dequeue(self):
-        temp = None
         if self.isempty():
             return -1
         else:
-            temp = self.head.data
+            data = self.head.data
             self.head = self.head.next
-            self.size-=1
-            return temp
+            self.qsize-=1
+            return data
 
     def isempty(self):
-        if self.size:
+        if self.qsize:
             return 0
         return 1
 
@@ -44,7 +54,7 @@ class Queue:
         return self.tail.data
     
     def size(self):
-        return self.size
+        return self.qsize
 
 
 def solve():
