@@ -1,11 +1,13 @@
 #https://www.acmicpc.net/problem/18258
 #https://one-step-a-day.tistory.com/112
 
+import sys
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
-        self.prev = None
+        
 class Queue:
     def __init__(self):
         self.head = Node(None)
@@ -14,23 +16,19 @@ class Queue:
     
     def enqueue(self,data):
         NewNode = Node(data)
-        if self.front() is None:
+        if self.head.data is None:
             self.head = NewNode
             self.tail = NewNode
             self.head.next = self.tail
-            print(1)
-            print(2)
         else:
             self.tail.next = NewNode 
             self.tail = NewNode
-            self.qsize+=1
-        # print(self.front())
-        print(self.front() is None)
-        
-
+        self.qsize+=1        
 
     def dequeue(self):
         if self.isempty():
+            self.head = Node(None)
+            self.tail = Node(None)
             return -1
         else:
             data = self.head.data
@@ -44,40 +42,38 @@ class Queue:
         return 1
 
     def front(self):
-        if self.isempty():
-            return -1
-        return self.head.data
+        if self.qsize:
+            return self.head.data
+        return -1
     
     def back(self):
-        if self.isempty():
-            return -1
-        return self.tail.data
+        if self.qsize:
+            return self.tail.data
+        return -1
     
     def size(self):
         return self.qsize
 
 
 def solve():
+    input = sys.stdin.readline
     N = int(input())
     queue = Queue()
     for _ in range(N):
-        cmd = input().split()
-        if cmd[0] == "push":
-            queue.enqueue(int(cmd[1]))
-            print(int(cmd[1]))
-        elif cmd[0] == "pop":
+        cmd = input().strip()
+        if cmd == "pop":
             print(queue.dequeue())
-        elif cmd[0] == "size":
-            print(int(queue.size()))
-        elif cmd[0] == "empty":
+        elif cmd == "size":
+            print(queue.size())
+        elif cmd == "empty":
             print(queue.isempty())
-        elif cmd[0] == "front":
+        elif cmd == "front":
             print(queue.front())
-        elif cmd[0] == "back":
+        elif cmd == "back":
             print(queue.back())
         else :
-            pass
-
+            _, num = cmd.split()
+            queue.enqueue(int(num))
     return
 
 if __name__ == "__main__":
