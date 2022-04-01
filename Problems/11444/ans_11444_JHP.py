@@ -29,10 +29,8 @@ def fibonacci(n):
         return A
     m = fibonacci(n//2)
     if n % 2:
-        print(n%2)
         return matrix_mul(matrix_mul(m, m), A)
     else:
-        print(n%2)
         return matrix_mul(m, m)
 
 def solve():
