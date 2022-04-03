@@ -1,5 +1,4 @@
 #https://www.acmicpc.net/problem/18258
-#https://one-step-a-day.tistory.com/112
 
 import sys
 
@@ -10,16 +9,18 @@ class Node:
         
 class Queue:
     def __init__(self):
-        self.head = Node(None)
-        self.tail = Node(None)
+        # self.head = Node(None)
+        # self.tail = Node(None)
+        self.head = None
+        self.tail = None
         self.qsize = 0
     
     def enqueue(self,data):
         NewNode = Node(data)
-        if self.head.data is None:
+        if self.head is None:
             self.head = NewNode
             self.tail = NewNode
-            self.head.next = self.tail
+            # self.head.next = self.tail #head-tail간 관계 설정 의도로 넣었는데 Line 37에서 오류 발생
         else:
             self.tail.next = NewNode 
             self.tail = NewNode
@@ -27,8 +28,8 @@ class Queue:
 
     def dequeue(self):
         if self.isempty():
-            self.head = Node(None)
-            self.tail = Node(None)
+            # self.head = None 초기화 불필요
+            # self.tail = None 
             return -1
         else:
             data = self.head.data
