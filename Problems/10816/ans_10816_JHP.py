@@ -6,6 +6,8 @@
 
 import sys
 
+''' 실패한 경우 : 시간초과 '''
+'''
 def binary_search(card_list,target, start, end):
     while start <= end:
         mid = (start + end)//2
@@ -29,9 +31,30 @@ def solve():
     for val in num_m:
         start = 0
         end = len(card_n) - 1
-        ans = binary_search(card_n, val, start, end)
+        # ans = binary_search(card_n, val, start, end)
         if ans != None:
             print(ans, end = ' ')
+        else:
+            print(0, end = ' ')
+'''
+
+def solve():
+    input = sys.stdin.readline
+    N = int(input())
+    card_n = list(map(int,input().split()))
+    M = int(input())
+    num_m = list(map(int,input().split()))
+    result_dic = {}
+    
+    for i in card_n:
+        if i in result_dic:
+            result_dic[i] += 1
+        else:
+            result_dic[i] = 1
+
+    for j in num_m:
+        if j in result_dic:
+            print(result_dic[j], end= ' ')
         else:
             print(0, end = ' ')
 
