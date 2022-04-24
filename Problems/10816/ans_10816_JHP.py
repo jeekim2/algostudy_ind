@@ -61,10 +61,7 @@ def solve():
         upper = upper_binary_search(card_n, val, 0, len(card_n))
         lower = lower_binary_search(card_n, val, 0, len(card_n))
         ans = upper - lower
-        if ans != None:
-            print(ans, end = ' ')
-        else:
-            print(0, end = ' ')
+        print(ans, end = ' ')
 
 ''' Dic 사용한 풀이 방식 
 def solve():
