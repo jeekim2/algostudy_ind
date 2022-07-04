@@ -29,7 +29,7 @@ def solve():
             graph[b] = [a]
         else:
             graph[b].append(a)
-    print(graph)
+
     visited = [False]*(n+1)
     print(bfs(1, graph, visited))
 
