@@ -16,26 +16,37 @@ def bfs(node, graph, visited):
                 cnt+=1
     return cnt
 
-# dfs로 풀기
+# Stack dfs로 풀기
 def dfs(node, graph, visited):
     stack = deque([node])
-    visited[node] = True
     cnt = 0
 
     while stack:
         v = stack.pop()
-        for i in graph[v]:
-            if not visited[i]:
-                visited[i] = True
-                stack.append(i)
-                cnt+=1
-                print(i, end=" ")
-    return cnt
+        if not visited[v]:
+            visited[v] = True
+            stack.extend(graph[v])
+            cnt+=1
+            print(v, end=" ")
+    return (cnt-1)
+
+# Recursion dfs로 풀기
+def dfs_Recursion(node, graph, visited):
+    global infectNum
+    visited[node] = True
+
+    for i in graph[node]:
+        if not visited[i]:
+            dfs_Recursion(i, graph, visited)
+            infectNum+=1
+    return infectNum
 
 def solve():
     n = int(input())
     m = int(input())
     graph = {}
+    global infectNum
+    infectNum = 0
     for _ in range(m):
         a,b =map(int, input().split())
         if a not in graph:
@@ -46,10 +57,15 @@ def solve():
             graph[b] = [a]
         else:
             graph[b].append(a)
-    print(graph)
+    # print(graph)
     visited = [False]*(n+1)
-    # print(bfs(1, graph, visited))
+    
+    # bfs로 풀기
+    print(bfs(1, graph, visited))
+    # stack bfs로 풀기 
     print(dfs(1, graph, visited))
+    # recursion bfs로 풀기
+    print(dfs_Recursion(1, graph, visited))
 
     return
 
