@@ -1,4 +1,4 @@
-// https://softeer.ai/practice/info.do?idx=1&eid=395
+// https://softeer.ai/practice/inf o.do?idx=1&eid=395
 
 #include <stdio.h>
 
